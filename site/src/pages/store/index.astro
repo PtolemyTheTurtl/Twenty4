@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SEO from '../../components/SEO.astro';
+import { pagesConfig } from '../../pages.config';
+
+const items = [
+  { name: 'Laser Build Notes (PDF)', desc: 'Writeup + parts list + safety notes.', status: 'Coming soon', href: '#' },
+  { name: 'Trip Pack List', desc: 'My go-to checklist for 3–7 day trips.', status: 'Coming soon', href: '#' },
+  { name: 'Consult / Collab', desc: 'Book time to brainstorm a build or project.', status: 'Coming soon', href: '#' },
+];
+---
+
+<BaseLayout>
+  <SEO slot="head" title={pagesConfig.store.title} description={pagesConfig.store.description} type="website" />
+
+  <main class="store">
+    <h1>{pagesConfig.store.heading}</h1>
+    <p class="intro">{pagesConfig.store.intro}</p>
+
+    <div class="grid">
+      {items.map((i) => (
+        <a class="card" href={i.href}>
+          <div class="top">
+            <div class="name">{i.name}</div>
+            <div class="badge">{i.status}</div>
+          </div>
+          <p class="desc">{i.desc}</p>
+        </a>
+      ))}
+    </div>
+  </main>
+
+  <style>
+    .store { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 8rem; }
+    .intro { color: var(--color-text-muted); max-width: 70ch; margin: 0 0 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .card { display:block; padding:18px; border-radius:16px; text-decoration:none; color:inherit;
+      background: rgba(255,255,255,.04); border: 1px solid var(--color-border); }
+    .card:hover { border-color: rgba(255,255,255,.25); }
+    .top { display:flex; align-items:center; justify-content:space-between; gap: 10px; margin-bottom: 10px; }
+    .name { font-weight: 600; }
+    .badge { font-size: 12px; color: var(--color-text-muted); border: 1px solid var(--color-border); padding: 3px 8px; border-radius: 999px; }
+    .desc { margin: 0; color: var(--color-text-muted); line-height: 1.55; }
+  </style>
+</BaseLayout>

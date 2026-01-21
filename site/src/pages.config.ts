@@ -119,6 +119,16 @@ export const pagesConfig = {
   },
   
   /**
+   * Store page (/store)
+   */
+  store: {
+    title: 'Store - Stuff I Make',
+    description: 'A small collection of downloads, notes, and links. No fluff.',
+    heading: 'Store',
+    intro: 'A simple place for downloads and links. Mostly experiments. Sometimes useful.',
+  },
+
+  /**
    * Contact page (/contact)
    */
   contact: {
